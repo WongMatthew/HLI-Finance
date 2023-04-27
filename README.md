@@ -1,5 +1,14 @@
 # HLI Finance
 
+## Documentation
+
+<details>
+ <summary>Database Schema</summary>
+  
+  [External Relationship Diagram](https://lucid.app/lucidchart/7d8108a3-b3a7-4b0c-a65d-79bd94d6a407/edit?viewport_loc=-4106%2C-264%2C4232%2C2032%2C0_0&invitationId=inv_9c64b53f-3e5b-4883-afcb-c5ac31384afc)
+  
+</details>
+
 ## User Flow
 
 <details>
