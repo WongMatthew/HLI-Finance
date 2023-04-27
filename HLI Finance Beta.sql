@@ -28,7 +28,7 @@ prompt APPLICATION 240101 - PR Billing
 -- Application Export:
 --   Application:     240101
 --   Name:            PR Billing
---   Date and Time:   11:01 Wednesday April 26, 2023
+--   Date and Time:   14:17 Thursday April 27, 2023
 --   Exported By:     MWONG
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -37,9 +37,9 @@ prompt APPLICATION 240101 - PR Billing
 --       Computations:            16
 --       Validations:             13
 --       Processes:               62
---       Regions:                 86
+--       Regions:                 87
 --       Buttons:                 83
---       Dynamic Actions:         58
+--       Dynamic Actions:         59
 --     Shared Components:
 --       Logic:
 --         Items:                  1
@@ -119,8 +119,8 @@ wwv_flow_imp.create_flow(
 ,p_auto_time_zone=>'N'
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'PR Billing'
-,p_last_updated_by=>'NTRAN'
-,p_last_upd_yyyymmddhh24miss=>'20230424163438'
+,p_last_updated_by=>'MWONG'
+,p_last_upd_yyyymmddhh24miss=>'20230427141407'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>17
 ,p_print_server_type=>'INSTANCE'
@@ -270,8 +270,8 @@ wwv_flow_imp_shared.create_list_item(
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(32873213844389523)
 ,p_list_item_display_sequence=>120
-,p_list_item_link_text=>'Send Invoices'
-,p_list_item_link_target=>'f?p=&APP_ID.:1006:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_link_text=>'Invoice Status'
+,p_list_item_link_target=>'f?p=&APP_ID.:1006:&SESSION.::&DEBUG.::::'
 ,p_parent_list_item_id=>wwv_flow_imp.id(32374383073030403)
 ,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
 ,p_list_item_current_for_pages=>'1006'
@@ -307,7 +307,7 @@ wwv_flow_imp_shared.create_list_item(
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(42671718920059232)
 ,p_list_item_display_sequence=>60
-,p_list_item_link_text=>'Send Invoices'
+,p_list_item_link_text=>'Invoice Status'
 ,p_list_item_link_target=>'f?p=&APP_ID.:36:&SESSION.::&DEBUG.::::'
 ,p_list_item_icon=>'fa-envelope-arrow-up'
 ,p_parent_list_item_id=>wwv_flow_imp.id(42620082295398657)
@@ -4395,8 +4395,8 @@ wwv_flow_imp_shared.create_menu_option(
 );
 wwv_flow_imp_shared.create_menu_option(
  p_id=>wwv_flow_imp.id(32877870495389534)
-,p_short_name=>'Send Invoices'
-,p_link=>'f?p=&APP_ID.:1006:&APP_SESSION.::&DEBUG.:::'
+,p_short_name=>'Invoice Status'
+,p_link=>'f?p=&APP_ID.:1006:&SESSION.::&DEBUG.:::'
 ,p_page_id=>1006
 );
 wwv_flow_imp_shared.create_menu_option(
@@ -4431,7 +4431,7 @@ wwv_flow_imp_shared.create_menu_option(
 );
 wwv_flow_imp_shared.create_menu_option(
  p_id=>wwv_flow_imp.id(42680544690059262)
-,p_short_name=>'Send Invoices'
+,p_short_name=>'Invoice Status'
 ,p_link=>'f?p=&APP_ID.:36:&SESSION.::&DEBUG.:::'
 ,p_page_id=>36
 );
@@ -29820,8 +29820,8 @@ wwv_flow_imp_page.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'21'
-,p_last_updated_by=>'JLAXMAN'
-,p_last_upd_yyyymmddhh24miss=>'20230419120240'
+,p_last_updated_by=>'mwong'
+,p_last_upd_yyyymmddhh24miss=>'20230426140851'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41927791933900563)
@@ -32556,8 +32556,8 @@ wwv_flow_imp_page.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'21'
-,p_last_updated_by=>'JLAXMAN'
-,p_last_upd_yyyymmddhh24miss=>'20230419135617'
+,p_last_updated_by=>'MWONG'
+,p_last_upd_yyyymmddhh24miss=>'20230426152929'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(52738415460875497)
@@ -32916,18 +32916,18 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_redirect_url=>'f?p=&APP_ID.:500:&SESSION.::&DEBUG.:500::'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(42869302883185163)
-,p_name=>'Edit Report - Dialog Closed'
+ p_id=>wwv_flow_imp.id(18402757314909905)
+,p_name=>'refresh'
 ,p_event_sequence=>10
 ,p_triggering_element_type=>'REGION'
 ,p_triggering_region_id=>wwv_flow_imp.id(52738415460875497)
 ,p_bind_type=>'bind'
 ,p_execution_type=>'IMMEDIATE'
-,p_bind_event_type=>'apexafterclosedialog'
+,p_bind_event_type=>'apexafterclosecanceldialog'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(42869875657185166)
-,p_event_id=>wwv_flow_imp.id(42869302883185163)
+ p_id=>wwv_flow_imp.id(18402896791909906)
+,p_event_id=>wwv_flow_imp.id(18402757314909905)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -32948,8 +32948,8 @@ wwv_flow_imp_page.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'21'
-,p_last_updated_by=>'JLAXMAN'
-,p_last_upd_yyyymmddhh24miss=>'20230419154106'
+,p_last_updated_by=>'MWONG'
+,p_last_upd_yyyymmddhh24miss=>'20230426154628'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(32208207914253213)
@@ -33121,11 +33121,10 @@ wwv_flow_imp_page.create_region_column(
 );
 wwv_flow_imp_page.create_region_column(
  p_id=>wwv_flow_imp.id(32209074399253221)
-,p_name=>'ALTERNATE_CONTACT_DBID'
+,p_name=>'CONTACT_DBID'
 ,p_source_type=>'DB_COLUMN'
-,p_source_expression=>'ALTERNATE_CONTACT_DBID'
+,p_source_expression=>'CONTACT_DBID'
 ,p_data_type=>'NUMBER'
-,p_session_state_data_type=>'VARCHAR2'
 ,p_is_query_only=>false
 ,p_item_type=>'NATIVE_SELECT_LIST'
 ,p_heading=>'Associated Contact'
@@ -33385,8 +33384,8 @@ wwv_flow_imp_page.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'21'
-,p_last_updated_by=>'JLAXMAN'
-,p_last_upd_yyyymmddhh24miss=>'20230421045013'
+,p_last_updated_by=>'MWONG'
+,p_last_upd_yyyymmddhh24miss=>'20230427121705'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(46564133521021150)
@@ -33403,14 +33402,13 @@ wwv_flow_imp_page.create_page_plug(
 );
 wwv_flow_imp_page.create_region_column(
  p_id=>wwv_flow_imp.id(32352242422566697)
-,p_name=>'CHEQUING_ADDRESS'
+,p_name=>'INSTITUTION_NUMBER'
 ,p_source_type=>'DB_COLUMN'
-,p_source_expression=>'CHEQUING_ADDRESS'
+,p_source_expression=>'INSTITUTION_NUMBER'
 ,p_data_type=>'VARCHAR2'
-,p_session_state_data_type=>'VARCHAR2'
 ,p_is_query_only=>false
 ,p_item_type=>'NATIVE_TEXT_FIELD'
-,p_heading=>'Chequing Address'
+,p_heading=>'Institution Number'
 ,p_heading_alignment=>'CENTER'
 ,p_display_sequence=>90
 ,p_value_alignment=>'LEFT'
@@ -33431,14 +33429,13 @@ wwv_flow_imp_page.create_region_column(
 );
 wwv_flow_imp_page.create_region_column(
  p_id=>wwv_flow_imp.id(32352788211566703)
-,p_name=>'CHEQUE_NUMBER'
+,p_name=>'TRANSIT_NUMBER'
 ,p_source_type=>'DB_COLUMN'
-,p_source_expression=>'CHEQUE_NUMBER'
+,p_source_expression=>'TRANSIT_NUMBER'
 ,p_data_type=>'VARCHAR2'
-,p_session_state_data_type=>'VARCHAR2'
 ,p_is_query_only=>false
 ,p_item_type=>'NATIVE_TEXT_FIELD'
-,p_heading=>'Cheque Number'
+,p_heading=>'Transit Number'
 ,p_heading_alignment=>'CENTER'
 ,p_display_sequence=>100
 ,p_value_alignment=>'LEFT'
@@ -38691,8 +38688,8 @@ wwv_flow_imp_page.create_page(
 ,p_dialog_chained=>'N'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
-,p_last_updated_by=>'JLAXMAN'
-,p_last_upd_yyyymmddhh24miss=>'20230420012745'
+,p_last_updated_by=>'MWONG'
+,p_last_upd_yyyymmddhh24miss=>'20230426153426'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(54175740727314653)
@@ -38888,12 +38885,11 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43344705150970788)
 ,p_name=>'P510_ORGANIZATION_ID'
 ,p_source_data_type=>'NUMBER'
-,p_is_required=>true
 ,p_item_sequence=>80
 ,p_item_plug_id=>wwv_flow_imp.id(54175740727314653)
 ,p_item_source_plug_id=>wwv_flow_imp.id(54175740727314653)
 ,p_prompt=>'Organization'
-,p_source=>'ORGANIZATION_ID'
+,p_source=>'DEPARTMENT_DBID'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_SELECT_LIST'
 ,p_named_lov=>'ORGANIZATION_NAME'
@@ -39031,8 +39027,8 @@ wwv_flow_imp_page.create_page(
 ,p_page_template_options=>'#DEFAULT#:js-dialog-class-t-Drawer--pullOutEnd'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
-,p_last_updated_by=>'JLAXMAN'
-,p_last_upd_yyyymmddhh24miss=>'20230419133857'
+,p_last_updated_by=>'MWONG'
+,p_last_upd_yyyymmddhh24miss=>'20230427110833'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(32222042844508771)
@@ -39225,13 +39221,13 @@ wwv_flow_imp_page.create_page_item(
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(32350142354566676)
-,p_name=>'P600_ALTERNATE_CONTACT_DBID'
+,p_name=>'P600_CONTACT_DBID'
 ,p_source_data_type=>'NUMBER'
 ,p_item_sequence=>80
 ,p_item_plug_id=>wwv_flow_imp.id(32222042844508771)
 ,p_item_source_plug_id=>wwv_flow_imp.id(32222042844508771)
 ,p_prompt=>'Associated Contact'
-,p_source=>'ALTERNATE_CONTACT_DBID'
+,p_source=>'CONTACT_DBID'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_POPUP_LOV'
 ,p_named_lov=>'CONTACT_NAME_GROUPED'
@@ -39364,8 +39360,8 @@ wwv_flow_imp_page.create_page(
 ,p_page_template_options=>'#DEFAULT#:js-dialog-class-t-Drawer--pullOutEnd'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
-,p_last_updated_by=>'JLAXMAN'
-,p_last_upd_yyyymmddhh24miss=>'20230421044620'
+,p_last_updated_by=>'MWONG'
+,p_last_upd_yyyymmddhh24miss=>'20230427121256'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(32393504602239570)
@@ -39538,17 +39534,17 @@ wwv_flow_imp_page.create_page_item(
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(32395517599239578)
-,p_name=>'P700_CHEQUING_ADDRESS'
+,p_name=>'P700_TRANSIT_NUMBER'
 ,p_source_data_type=>'VARCHAR2'
 ,p_item_sequence=>80
 ,p_item_plug_id=>wwv_flow_imp.id(32393504602239570)
 ,p_item_source_plug_id=>wwv_flow_imp.id(32393504602239570)
-,p_prompt=>'Chequing Address'
-,p_source=>'CHEQUING_ADDRESS'
+,p_prompt=>'Transit Number'
+,p_source=>'TRANSIT_NUMBER'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
-,p_cMaxlength=>200
+,p_cMaxlength=>100
 ,p_field_template=>wwv_flow_imp.id(41858291462675001)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -39559,17 +39555,17 @@ wwv_flow_imp_page.create_page_item(
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(32398720197239581)
-,p_name=>'P700_CHEQUE_NUMBER'
+,p_name=>'P700_INSTITUTION_NUMBER'
 ,p_source_data_type=>'VARCHAR2'
 ,p_item_sequence=>70
 ,p_item_plug_id=>wwv_flow_imp.id(32393504602239570)
 ,p_item_source_plug_id=>wwv_flow_imp.id(32393504602239570)
-,p_prompt=>'Cheque Number'
-,p_source=>'CHEQUE_NUMBER'
+,p_prompt=>'Institution Number'
+,p_source=>'INSTITUTION_NUMBER'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
-,p_cMaxlength=>100
+,p_cMaxlength=>200
 ,p_field_template=>wwv_flow_imp.id(41858291462675001)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -41012,8 +41008,152 @@ wwv_flow_imp_page.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'18'
-,p_last_updated_by=>'JLAXMAN'
-,p_last_upd_yyyymmddhh24miss=>'20230421155509'
+,p_last_updated_by=>'MWONG'
+,p_last_upd_yyyymmddhh24miss=>'20230427141407'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(18402947363909907)
+,p_plug_name=>'Sent Invoices'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41788114798674966)
+,p_plug_display_sequence=>30
+,p_query_type=>'SQL'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'select I.DBID,',
+'       I.INVOICE_DATE     INVOICE_DATE,',
+'       CASE WHEN M.CURRENCY = ''EURO'' ',
+unistr('            THEN ''\20AC'' || TO_CHAR(I.AMOUNT_DUE, ''FM999G999G999G999G990D00'') || '' '' || M.CURRENCY'),
+'            ELSE ''$'' || TO_CHAR(I.AMOUNT_DUE, ''FM999G999G999G999G990D00'') || '' '' || M.CURRENCY   ',
+'        END AMOUNT_DUE,',
+'       I.STATUS           INVOICE_STATUS,',
+'       I.INVOICE_DUE_DATE PAYMENT_DUE_DATE,',
+'       I.UPDATED_BY       RECORDED_BY,',
+'       I.UPDATED_ON       DATE_UPDATED,',
+'       I.INVOICE_NUMBER   INVOICE_NUMBER',
+'       --NVL(TO_CHAR(I.INVOICE_PAID_DATE,''DD-MON-YYYY''),'' '') PAID_DATE',
+'from INVOICE I, MAIN_INVOICE M',
+'where I.MAIN_INVOICE_DBID = M.DBID',
+'AND   I.STATUS IN (1,2) ',
+'AND   M.MONEY_TRANSFER_FLAG = 1',
+'ORDER BY I.INVOICE_DATE ASC;'))
+,p_plug_source_type=>'NATIVE_IR'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+);
+wwv_flow_imp_page.create_worksheet(
+ p_id=>wwv_flow_imp.id(18403053871909908)
+,p_max_row_count_message=>'The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query.'
+,p_no_data_found_message=>'No data found.'
+,p_pagination_type=>'ROWS_X_TO_Y'
+,p_pagination_display_pos=>'BOTTOM_RIGHT'
+,p_show_actions_menu=>'N'
+,p_report_list_mode=>'TABS'
+,p_lazy_loading=>false
+,p_show_detail_link=>'C'
+,p_enable_mail_download=>'Y'
+,p_detail_link=>'f?p=&APP_ID.:1060:&SESSION.::&DEBUG.:RP,1060:P1060_DBID:\#DBID#\#INVOICE_DBID#'
+,p_detail_link_text=>'<span aria-label="Edit"><span class="fa fa-edit" aria-hidden="true" title="Edit"></span></span>'
+,p_owner=>'MWONG'
+,p_internal_uid=>18403053871909908
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18403154516909909)
+,p_db_column_name=>'DBID'
+,p_display_order=>10
+,p_column_identifier=>'A'
+,p_column_label=>'Dbid'
+,p_column_type=>'NUMBER'
+,p_display_text_as=>'HIDDEN_ESCAPE_SC'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18403214776909910)
+,p_db_column_name=>'INVOICE_STATUS'
+,p_display_order=>30
+,p_column_identifier=>'B'
+,p_column_label=>'Invoice Status'
+,p_column_type=>'NUMBER'
+,p_display_text_as=>'LOV_ESCAPE_SC'
+,p_column_alignment=>'CENTER'
+,p_rpt_named_lov=>wwv_flow_imp.id(42499640887056521)
+,p_rpt_show_filter_lov=>'1'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18403366392909911)
+,p_db_column_name=>'INVOICE_DATE'
+,p_display_order=>40
+,p_column_identifier=>'C'
+,p_column_label=>'Invoice Date'
+,p_column_type=>'DATE'
+,p_column_alignment=>'CENTER'
+,p_format_mask=>'DD-MON-YYYY'
+,p_tz_dependent=>'N'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18403410857909912)
+,p_db_column_name=>'AMOUNT_DUE'
+,p_display_order=>60
+,p_column_identifier=>'D'
+,p_column_label=>'Amount Due'
+,p_column_type=>'STRING'
+,p_column_alignment=>'RIGHT'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18403549124909913)
+,p_db_column_name=>'PAYMENT_DUE_DATE'
+,p_display_order=>70
+,p_column_identifier=>'E'
+,p_column_label=>'Payment Due Date'
+,p_column_type=>'DATE'
+,p_column_alignment=>'CENTER'
+,p_format_mask=>'DD-MON-YYYY'
+,p_tz_dependent=>'N'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18403659267909914)
+,p_db_column_name=>'RECORDED_BY'
+,p_display_order=>90
+,p_column_identifier=>'F'
+,p_column_label=>'Last Updated By'
+,p_column_type=>'STRING'
+,p_column_alignment=>'CENTER'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18403718433909915)
+,p_db_column_name=>'DATE_UPDATED'
+,p_display_order=>100
+,p_column_identifier=>'G'
+,p_column_label=>'Date Last Updated'
+,p_column_type=>'DATE'
+,p_column_alignment=>'CENTER'
+,p_format_mask=>'DD-MON-YYYY'
+,p_tz_dependent=>'N'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18404211825909920)
+,p_db_column_name=>'INVOICE_NUMBER'
+,p_display_order=>110
+,p_column_identifier=>'H'
+,p_column_label=>'Invoice Number'
+,p_column_type=>'STRING'
+,p_display_text_as=>'LOV_ESCAPE_SC'
+,p_rpt_named_lov=>wwv_flow_imp.id(42499640887056521)
+,p_rpt_show_filter_lov=>'1'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_rpt(
+ p_id=>wwv_flow_imp.id(18862464143781582)
+,p_application_user=>'APXWS_DEFAULT'
+,p_report_seq=>10
+,p_report_alias=>'188625'
+,p_status=>'PUBLIC'
+,p_is_default=>'Y'
+,p_report_columns=>'INVOICE_NUMBER:INVOICE_DATE:AMOUNT_DUE:PAYMENT_DUE_DATE:RECORDED_BY:DATE_UPDATED:'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(68037288768070016)
@@ -41032,7 +41172,8 @@ unistr('            THEN ''\20AC'' || TO_CHAR(I.AMOUNT_DUE, ''FM999G999G999G999G
 '       I.STATUS           INVOICE_STATUS,',
 '       I.INVOICE_DUE_DATE PAYMENT_DUE_DATE,',
 '       I.UPDATED_BY       RECORDED_BY,',
-'       I.UPDATED_ON       DATE_UPDATED       ',
+'       I.UPDATED_ON       DATE_UPDATED,',
+'       I.INVOICE_NUMBER   INVOICE_NUMBER',
 'from INVOICE I, MAIN_INVOICE M',
 'where I.MAIN_INVOICE_DBID = M.DBID',
 'AND   I.STATUS = 0',
@@ -41072,7 +41213,7 @@ wwv_flow_imp_page.create_worksheet_column(
 wwv_flow_imp_page.create_worksheet_column(
  p_id=>wwv_flow_imp.id(32873943332389526)
 ,p_db_column_name=>'INVOICE_STATUS'
-,p_display_order=>20
+,p_display_order=>30
 ,p_column_identifier=>'T'
 ,p_column_label=>'Invoice Status'
 ,p_column_type=>'NUMBER'
@@ -41145,7 +41286,7 @@ wwv_flow_imp_page.create_worksheet_rpt(
 ,p_report_alias=>'105203'
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
-,p_report_columns=>'INVOICE_DATE:INVOICE_STATUS:AMOUNT_DUE:RECORDED_BY:DATE_UPDATED:'
+,p_report_columns=>'INVOICE_DATE:AMOUNT_DUE:PAYMENT_DUE_DATE:RECORDED_BY:DATE_UPDATED:'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(68044790868070027)
@@ -41158,6 +41299,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_menu_id=>wwv_flow_imp.id(41685466804674910)
 ,p_plug_source_type=>'NATIVE_BREADCRUMB'
 ,p_menu_template_id=>wwv_flow_imp.id(41862613307675004)
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 );
 wwv_flow_imp_page.create_page_button(
  p_id=>wwv_flow_imp.id(32877011632389532)
@@ -41175,7 +41317,7 @@ wwv_flow_imp_page.create_page_button(
 );
 wwv_flow_imp_page.create_page_da_event(
  p_id=>wwv_flow_imp.id(32877976535389534)
-,p_name=>'Edit Report - Dialog Closed'
+,p_name=>'Edit Report - Dialog Closed (unsent)'
 ,p_event_sequence=>10
 ,p_triggering_element_type=>'REGION'
 ,p_triggering_region_id=>wwv_flow_imp.id(68037288768070016)
@@ -41192,6 +41334,27 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_action=>'NATIVE_REFRESH'
 ,p_affected_elements_type=>'REGION'
 ,p_affected_region_id=>wwv_flow_imp.id(68037288768070016)
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(18406211297909940)
+,p_name=>'Edit Report - Dialog Closed (sent)'
+,p_event_sequence=>20
+,p_triggering_element_type=>'REGION'
+,p_triggering_region_id=>wwv_flow_imp.id(18402947363909907)
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'apexafterclosedialog'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(18406335695909941)
+,p_event_id=>wwv_flow_imp.id(18406211297909940)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_name=>'Refresh'
+,p_action=>'NATIVE_REFRESH'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_imp.id(18402947363909907)
 );
 end;
 /
