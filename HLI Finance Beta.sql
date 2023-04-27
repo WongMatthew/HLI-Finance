@@ -28,7 +28,7 @@ prompt APPLICATION 240101 - PR Billing
 -- Application Export:
 --   Application:     240101
 --   Name:            PR Billing
---   Date and Time:   14:53 Thursday April 27, 2023
+--   Date and Time:   15:17 Thursday April 27, 2023
 --   Exported By:     MWONG
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -37,7 +37,7 @@ prompt APPLICATION 240101 - PR Billing
 --       Computations:            16
 --       Validations:             13
 --       Processes:               62
---       Regions:                 88
+--       Regions:                 89
 --       Buttons:                 83
 --       Dynamic Actions:         60
 --     Shared Components:
@@ -120,7 +120,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'PR Billing'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230427145307'
+,p_last_upd_yyyymmddhh24miss=>'20230427151457'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>17
 ,p_print_server_type=>'INSTANCE'
@@ -32157,14 +32157,154 @@ wwv_flow_imp_page.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'18'
-,p_last_updated_by=>'JLAXMAN'
-,p_last_upd_yyyymmddhh24miss=>'20230421160821'
+,p_last_updated_by=>'MWONG'
+,p_last_upd_yyyymmddhh24miss=>'20230427151457'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(18894363104584404)
+,p_plug_name=>'Sent Invoices'
+,p_region_template_options=>'#DEFAULT#:is-expanded:t-Region--scrollBody'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41741050161674943)
+,p_plug_display_sequence=>20
+,p_query_type=>'SQL'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'select I.DBID,',
+'       I.INVOICE_DATE     INVOICE_DATE,',
+'       CASE WHEN M.CURRENCY = ''EURO'' ',
+unistr('            THEN ''\20AC'' || TO_CHAR(I.AMOUNT_DUE, ''FM999G999G999G999G990D00'') || '' '' || M.CURRENCY'),
+'            ELSE ''$'' || TO_CHAR(I.AMOUNT_DUE, ''FM999G999G999G999G990D00'') || '' '' || M.CURRENCY   ',
+'        END AMOUNT_DUE,',
+'       I.STATUS           INVOICE_STATUS,',
+'       I.INVOICE_DUE_DATE PAYMENT_DUE_DATE,',
+'       I.UPDATED_BY       RECORDED_BY,',
+'       I.UPDATED_ON       DATE_UPDATED,',
+'       I.INVOICE_NUMBER   INVOICE_NUMBER',
+'from INVOICE I, MAIN_INVOICE M',
+'where I.MAIN_INVOICE_DBID = M.DBID',
+'AND   M.MONEY_TRANSFER_FLAG = 0',
+'AND   I.STATUS IN (1,2) ',
+'ORDER BY I.INVOICE_DATE ASC'))
+,p_plug_source_type=>'NATIVE_IR'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+);
+wwv_flow_imp_page.create_worksheet(
+ p_id=>wwv_flow_imp.id(18894442626584405)
+,p_max_row_count_message=>'The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query.'
+,p_no_data_found_message=>'No data found.'
+,p_pagination_type=>'ROWS_X_TO_Y'
+,p_pagination_display_pos=>'BOTTOM_RIGHT'
+,p_show_actions_menu=>'N'
+,p_report_list_mode=>'TABS'
+,p_lazy_loading=>false
+,p_show_detail_link=>'C'
+,p_enable_mail_download=>'Y'
+,p_detail_link=>'f?p=&APP_ID.:360:&SESSION.::&DEBUG.:RP,360:P360_DBID:\#DBID#\#INVOICE_DBID#'
+,p_detail_link_text=>'<span aria-label="Edit"><span class="fa fa-edit" aria-hidden="true" title="Edit"></span></span>'
+,p_owner=>'MWONG'
+,p_internal_uid=>18894442626584405
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18894517946584406)
+,p_db_column_name=>'DBID'
+,p_display_order=>10
+,p_column_identifier=>'A'
+,p_column_label=>'Dbid'
+,p_column_type=>'NUMBER'
+,p_display_text_as=>'HIDDEN_ESCAPE_SC'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18894656138584407)
+,p_db_column_name=>'INVOICE_STATUS'
+,p_display_order=>20
+,p_column_identifier=>'B'
+,p_column_label=>'Invoice Status'
+,p_column_type=>'NUMBER'
+,p_display_text_as=>'LOV_ESCAPE_SC'
+,p_column_alignment=>'CENTER'
+,p_rpt_named_lov=>wwv_flow_imp.id(42499640887056521)
+,p_rpt_show_filter_lov=>'1'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18894755994584408)
+,p_db_column_name=>'INVOICE_DATE'
+,p_display_order=>30
+,p_column_identifier=>'C'
+,p_column_label=>'Invoice Date'
+,p_column_type=>'DATE'
+,p_column_alignment=>'CENTER'
+,p_format_mask=>'DD-MON-YYYY'
+,p_tz_dependent=>'N'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18894887357584409)
+,p_db_column_name=>'AMOUNT_DUE'
+,p_display_order=>40
+,p_column_identifier=>'D'
+,p_column_label=>'Amount Due'
+,p_column_type=>'STRING'
+,p_column_alignment=>'RIGHT'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18894980969584410)
+,p_db_column_name=>'PAYMENT_DUE_DATE'
+,p_display_order=>50
+,p_column_identifier=>'E'
+,p_column_label=>'Payment Due Date'
+,p_column_type=>'DATE'
+,p_column_alignment=>'CENTER'
+,p_format_mask=>'DD-MON-YYYY'
+,p_tz_dependent=>'N'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18895086071584411)
+,p_db_column_name=>'RECORDED_BY'
+,p_display_order=>60
+,p_column_identifier=>'F'
+,p_column_label=>'Last Updated By'
+,p_column_type=>'STRING'
+,p_column_alignment=>'CENTER'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18895170551584412)
+,p_db_column_name=>'DATE_UPDATED'
+,p_display_order=>70
+,p_column_identifier=>'G'
+,p_column_label=>'Date Last Updated'
+,p_column_type=>'DATE'
+,p_column_alignment=>'CENTER'
+,p_format_mask=>'DD-MON-YYYY'
+,p_tz_dependent=>'N'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18895252830584413)
+,p_db_column_name=>'INVOICE_NUMBER'
+,p_display_order=>80
+,p_column_identifier=>'H'
+,p_column_label=>'Invoice Number'
+,p_column_type=>'STRING'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_rpt(
+ p_id=>wwv_flow_imp.id(18909623033730595)
+,p_application_user=>'APXWS_DEFAULT'
+,p_report_seq=>10
+,p_report_alias=>'189097'
+,p_status=>'PUBLIC'
+,p_is_default=>'Y'
+,p_report_columns=>'DBID:INVOICE_STATUS:INVOICE_DATE:AMOUNT_DUE:PAYMENT_DUE_DATE:RECORDED_BY:DATE_UPDATED:INVOICE_NUMBER'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(53183657068011570)
 ,p_plug_name=>'Unsent Invoices'
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
-,p_plug_template=>wwv_flow_imp.id(41788114798674966)
+,p_region_template_options=>'#DEFAULT#:is-expanded:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_imp.id(41741050161674943)
 ,p_plug_display_sequence=>10
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
@@ -32177,7 +32317,8 @@ unistr('            THEN ''\20AC'' || TO_CHAR(I.AMOUNT_DUE, ''FM999G999G999G999G
 '       I.STATUS           INVOICE_STATUS,',
 '       I.INVOICE_DUE_DATE PAYMENT_DUE_DATE,',
 '       I.UPDATED_BY       RECORDED_BY,',
-'       I.UPDATED_ON       DATE_UPDATED       ',
+'       I.UPDATED_ON       DATE_UPDATED,',
+'       I.INVOICE_NUMBER   INVOICE_NUMBER',
 'from INVOICE I, MAIN_INVOICE M',
 'where I.MAIN_INVOICE_DBID = M.DBID',
 'AND   M.MONEY_TRANSFER_FLAG = 0',
@@ -32283,6 +32424,15 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_tz_dependent=>'N'
 ,p_use_as_row_header=>'N'
 );
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18895374997584414)
+,p_db_column_name=>'INVOICE_NUMBER'
+,p_display_order=>90
+,p_column_identifier=>'AA'
+,p_column_label=>'Invoice Number'
+,p_column_type=>'STRING'
+,p_use_as_row_header=>'N'
+);
 wwv_flow_imp_page.create_worksheet_rpt(
  p_id=>wwv_flow_imp.id(53191683531011978)
 ,p_application_user=>'APXWS_DEFAULT'
@@ -32290,7 +32440,7 @@ wwv_flow_imp_page.create_worksheet_rpt(
 ,p_report_alias=>'105203'
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
-,p_report_columns=>'INVOICE_DATE:INVOICE_STATUS:AMOUNT_DUE:RECORDED_BY:DATE_UPDATED:'
+,p_report_columns=>'INVOICE_DATE:AMOUNT_DUE:PAYMENT_DUE_DATE:RECORDED_BY:DATE_UPDATED:'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(53191159168011581)
@@ -32352,7 +32502,7 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'18'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230427145307'
+,p_last_upd_yyyymmddhh24miss=>'20230427151018'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(18406496995909942)
@@ -32373,7 +32523,8 @@ unistr('            THEN ''\20AC'' || TO_CHAR(I.AMOUNT_DUE, ''FM999G999G999G999G
 '        END AMOUNT_DUE,',
 '       I.STATUS           INVOICE_STATUS,       ',
 '       I.UPDATED_BY       RECORDED_BY,',
-'       I.UPDATED_ON       DATE_UPDATED       ',
+'       I.UPDATED_ON       DATE_UPDATED,  ',
+'       NVL(TO_CHAR(I.INVOICE_PAID_DATE,''DD-MON-YYYY''),''---'') PAID_DATE',
 'from INVOICE I, MAIN_INVOICE M',
 'where I.MAIN_INVOICE_DBID = M.DBID',
 'AND   I.STATUS = 2',
@@ -32387,10 +32538,11 @@ wwv_flow_imp_page.create_worksheet(
 ,p_no_data_found_message=>'No data found.'
 ,p_pagination_type=>'ROWS_X_TO_Y'
 ,p_pagination_display_pos=>'BOTTOM_RIGHT'
-,p_show_actions_menu=>'N'
 ,p_report_list_mode=>'TABS'
 ,p_lazy_loading=>false
 ,p_show_detail_link=>'C'
+,p_show_notify=>'Y'
+,p_download_formats=>'CSV:HTML:XLSX:PDF'
 ,p_enable_mail_download=>'Y'
 ,p_detail_link=>'f?p=&APP_ID.:400:&APP_SESSION.::&DEBUG.:RP:P400_DBID:\#DBID#\'
 ,p_detail_link_text=>'<span aria-label="Edit"><span class="fa fa-edit" aria-hidden="true" title="Edit"></span></span>'
@@ -32486,6 +32638,15 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_tz_dependent=>'N'
 ,p_use_as_row_header=>'N'
 );
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(18895530578584416)
+,p_db_column_name=>'PAID_DATE'
+,p_display_order=>90
+,p_column_identifier=>'J'
+,p_column_label=>'Paid Date'
+,p_column_type=>'STRING'
+,p_use_as_row_header=>'N'
+);
 wwv_flow_imp_page.create_worksheet_rpt(
  p_id=>wwv_flow_imp.id(18901990066589768)
 ,p_application_user=>'APXWS_DEFAULT'
@@ -32493,7 +32654,7 @@ wwv_flow_imp_page.create_worksheet_rpt(
 ,p_report_alias=>'189020'
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
-,p_report_columns=>'INVOICE_NUMBER:INVOICE_DATE:AMOUNT_DUE:PAYMENT_DUE_DATE:RECORDED_BY:DATE_UPDATED:'
+,p_report_columns=>'INVOICE_NUMBER:INVOICE_DATE:AMOUNT_DUE:PAYMENT_DUE_DATE:RECORDED_BY:DATE_UPDATED'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(42563797420162513)
