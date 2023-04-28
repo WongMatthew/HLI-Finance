@@ -28,7 +28,7 @@ prompt APPLICATION 240402 - PR Billing
 -- Application Export:
 --   Application:     240402
 --   Name:            PR Billing
---   Date and Time:   12:46 Friday April 28, 2023
+--   Date and Time:   14:50 Friday April 28, 2023
 --   Exported By:     MWONG
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -120,7 +120,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'PR Billing'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230428123014'
+,p_last_upd_yyyymmddhh24miss=>'20230428145001'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>17
 ,p_print_server_type=>'INSTANCE'
@@ -32157,8 +32157,8 @@ wwv_flow_imp_page.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'18'
-,p_last_updated_by=>'mwong'
-,p_last_upd_yyyymmddhh24miss=>'20230428101430'
+,p_last_updated_by=>'MWONG'
+,p_last_upd_yyyymmddhh24miss=>'20230428145001'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(37928723923161013)
@@ -32194,11 +32194,10 @@ wwv_flow_imp_page.create_worksheet(
 ,p_no_data_found_message=>'No data found.'
 ,p_pagination_type=>'ROWS_X_TO_Y'
 ,p_pagination_display_pos=>'BOTTOM_RIGHT'
+,p_show_actions_menu=>'N'
 ,p_report_list_mode=>'TABS'
 ,p_lazy_loading=>false
 ,p_show_detail_link=>'C'
-,p_show_notify=>'Y'
-,p_download_formats=>'CSV:HTML:XLSX:PDF'
 ,p_enable_mail_download=>'Y'
 ,p_detail_link=>'f?p=&APP_ID.:360:&SESSION.::&DEBUG.:RP,360:P360_DBID:\#DBID#\#INVOICE_DBID#'
 ,p_detail_link_text=>'<span aria-label="Edit"><span class="fa fa-edit" aria-hidden="true" title="Edit"></span></span>'
