@@ -28,7 +28,7 @@ prompt APPLICATION 240402 - PR Billing
 -- Application Export:
 --   Application:     240402
 --   Name:            PR Billing
---   Date and Time:   10:36 Friday April 28, 2023
+--   Date and Time:   11:30 Friday April 28, 2023
 --   Exported By:     MWONG
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -120,7 +120,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'PR Billing'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230428102634'
+,p_last_upd_yyyymmddhh24miss=>'20230428113004'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>17
 ,p_print_server_type=>'INSTANCE'
@@ -37334,8 +37334,8 @@ wwv_flow_imp_page.create_page(
 ,p_dialog_chained=>'N'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
-,p_last_updated_by=>'JLAXMAN'
-,p_last_upd_yyyymmddhh24miss=>'20230421145210'
+,p_last_updated_by=>'MWONG'
+,p_last_upd_yyyymmddhh24miss=>'20230428113004'
 );
 wwv_flow_imp_page.create_report_region(
  p_id=>wwv_flow_imp.id(61630338296801105)
@@ -38047,8 +38047,8 @@ wwv_flow_imp_page.create_page_da_action(
 '                                        C.EMAIL AS "customer_email",',
 '                                        C.PHONE AS "customer_phone",',
 '                                        R.ACCOUNT_NAME AS "receivable_name",',
-'                                        R.CHEQUING_ADDRESS AS "receivable_address",',
-'                                        R.CHEQUE_NUMBER AS "receivable_cheque_number",   ',
+'                                        R.TRANSIT_NUMBER AS "receivable_address",',
+'                                        R.INSTITUTION_NUMBER AS "receivable_cheque_number",   ',
 '                                        A.ACCOUNT_NUMBER AS "payable_account",',
 '                                        P.NAME  AS  "payable_name",',
 '                                        P.SUBGROUP  AS  "payable_dept",',
@@ -38159,8 +38159,8 @@ wwv_flow_imp_page.create_page_process(
 '                C.EMAIL AS "customer_email",',
 '                C.PHONE AS "customer_phone",',
 '                R.ACCOUNT_NAME AS "receivable_name",',
-'                R.CHEQUING_ADDRESS AS "receivable_address",',
-'                R.CHEQUE_NUMBER AS "receivable_cheque_number",   ',
+'                R.TRANSIT_NUMBER AS "receivable_address",',
+'                R.INSTITUTION_NUMBER AS "receivable_cheque_number",   ',
 '                A.ACCOUNT_NUMBER AS "payable_account",',
 '                P.NAME  AS  "payable_name",',
 '                P.SUBGROUP  AS  "payable_dept",',
@@ -42704,8 +42704,8 @@ wwv_flow_imp_page.create_page(
 ,p_dialog_chained=>'N'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
-,p_last_updated_by=>'JLAXMAN'
-,p_last_upd_yyyymmddhh24miss=>'20230421161011'
+,p_last_updated_by=>'MWONG'
+,p_last_upd_yyyymmddhh24miss=>'20230428112651'
 );
 wwv_flow_imp_page.create_report_region(
  p_id=>wwv_flow_imp.id(76622089903514466)
@@ -43402,8 +43402,8 @@ wwv_flow_imp_page.create_page_process(
 '                C.EMAIL AS "customer_email",',
 '                C.PHONE AS "customer_phone",',
 '                R.ACCOUNT_NAME AS "receivable_name",',
-'                R.CHEQUING_ADDRESS AS "receivable_address",',
-'                R.CHEQUE_NUMBER AS "receivable_cheque_number",   ',
+'                R.TRANSIT_NUMBER AS "receivable_address",',
+'                R.INSTITUTION_NUMBER AS "receivable_cheque_number",   ',
 '                A.ACCOUNT_NUMBER AS "payable_account",',
 '                P.NAME  AS  "payable_name",',
 '                P.SUBGROUP  AS  "payable_dept",',
