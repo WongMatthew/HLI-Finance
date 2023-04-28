@@ -28,7 +28,7 @@ prompt APPLICATION 240402 - PR Billing
 -- Application Export:
 --   Application:     240402
 --   Name:            PR Billing
---   Date and Time:   10:16 Friday April 28, 2023
+--   Date and Time:   10:36 Friday April 28, 2023
 --   Exported By:     MWONG
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -119,8 +119,8 @@ wwv_flow_imp.create_flow(
 ,p_auto_time_zone=>'N'
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'PR Billing'
-,p_last_updated_by=>'mwong'
-,p_last_upd_yyyymmddhh24miss=>'20230428101430'
+,p_last_updated_by=>'MWONG'
+,p_last_upd_yyyymmddhh24miss=>'20230428102634'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>17
 ,p_print_server_type=>'INSTANCE'
@@ -39353,13 +39353,14 @@ wwv_flow_imp_page.create_page(
 ,p_alias=>'ACCOUNT-ENTRY-FORM'
 ,p_page_mode=>'MODAL'
 ,p_step_title=>'Account Entry Form'
+,p_error_handling_function=>'ERROR_UTL.account_RP_datatype_form_error'
 ,p_autocomplete_on_off=>'OFF'
 ,p_step_template=>wwv_flow_imp.id(60720585522251521)
 ,p_page_template_options=>'#DEFAULT#:js-dialog-class-t-Drawer--pullOutEnd'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230427110833'
+,p_last_upd_yyyymmddhh24miss=>'20230428102542'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(51256403663085380)
@@ -39686,13 +39687,14 @@ wwv_flow_imp_page.create_page(
 ,p_alias=>'ACCOUNT-RECEIVABLE-ENTRY-FORM'
 ,p_page_mode=>'MODAL'
 ,p_step_title=>'Account Receivable Entry Form'
+,p_error_handling_function=>'ERROR_UTL.account_RP_datatype_form_error'
 ,p_autocomplete_on_off=>'OFF'
 ,p_step_template=>wwv_flow_imp.id(60720585522251521)
 ,p_page_template_options=>'#DEFAULT#:js-dialog-class-t-Drawer--pullOutEnd'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230427121256'
+,p_last_upd_yyyymmddhh24miss=>'20230428102634'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(51427865420816179)
