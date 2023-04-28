@@ -12,6 +12,29 @@
 ## User Flow
 
 <details>
+  <summary>Databases</summary>
+ 
+ ## Add Organization
+ ![image](https://user-images.githubusercontent.com/49925170/235258637-667d0a4b-dacf-48a9-b3df-3dd5d6a8f5a1.png)
+
+ ## Add Department
+ ![image](https://user-images.githubusercontent.com/49925170/235258700-e2322b7a-4f8f-4d5a-93d8-00325d75f7a5.png)
+
+ ## Add Contacts
+ ![image](https://user-images.githubusercontent.com/49925170/235258786-1a85aa29-2933-4f85-b01f-e92b55eab28b.png)
+
+ ## Add Items
+ ![image](https://user-images.githubusercontent.com/49925170/235258849-26ca005f-a991-4190-9dbd-67934b7da284.png)
+
+ ## Add Accounts Payable
+ ![image](https://user-images.githubusercontent.com/49925170/235258874-d242370d-3431-4d54-a8a4-9b573ef37281.png)
+
+ ## Add Accounts Recievable
+ ![image](https://user-images.githubusercontent.com/49925170/235258918-13f3eaaf-ca70-428c-8a95-03e22896c287.png)
+ 
+</details>
+
+<details>
   <summary>Money Transfer</summary>
  
 ## Create an invoice on the manage statements tab
@@ -44,11 +67,35 @@
 </details>
   
 <details>
-  <summary>Databases</summary>
-</details>
-  
-<details>
   <summary>Billing</summary>
+ 
+ ## Create an invoice on the manage statements tab
+ ![image](https://user-images.githubusercontent.com/49925170/235259086-f8380e58-af6f-497b-a308-29fec11e0939.png)
+
+ ## Fill out form and create the invoice
+ ![image](https://user-images.githubusercontent.com/49925170/235259143-aaccd4a2-100c-4998-8ba6-d3ac181fe12f.png)
+
+ ## Add items if necessary
+ ![image](https://user-images.githubusercontent.com/49925170/235259236-f167b364-a2db-46aa-a478-c9c910523242.png)
+
+ ## Can add new items to list if necessary
+ ![image](https://user-images.githubusercontent.com/49925170/235259316-0355a9ab-6080-42bb-99bc-2811ee55820e.png)
+
+ ## Navigate to Statement Lookup to view all statements
+ ![image](https://user-images.githubusercontent.com/49925170/235259526-7d6b3abc-c3d5-405e-898c-e91f4af92fff.png)
+ 
+ ## Navigate to Invoice Status
+ ![image](https://user-images.githubusercontent.com/49925170/235259788-caa4514d-60c6-452f-bf49-fb32be63e6e5.png)
+ 
+ ## Select invoice from list and choose to edit the invoice
+ ![image](https://user-images.githubusercontent.com/49925170/235259842-5cae0a5e-d09b-4814-a336-7306f5e7bea5.png)
+
+ ## Confirm the information and send the invoice
+ ![image](https://user-images.githubusercontent.com/49925170/235259910-b7b7cb9c-6773-419b-8471-5a2b6008a4e2.png)
+
+ ## Invoice will show up under sent
+![image](https://user-images.githubusercontent.com/49925170/235260001-138792b7-8670-48e9-a9c9-fe6bba988ac6.png)
+ 
 </details> 
   
 <details>
