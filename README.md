@@ -100,4 +100,20 @@
   
 <details>
   <summary>Payments and Collection</summary>
+ 
+  ## Navigate to Payments and Collection
+  ![image](https://user-images.githubusercontent.com/49925170/235263089-7836ef0f-6b55-40e2-aad3-0f41694db512.png)
+  
+  ## View all approved invoices (paid, unpaid)
+  ![image](https://user-images.githubusercontent.com/49925170/235263195-c5ee59c6-b07d-4d15-ac64-4b2cdebc4913.png)
+
+  ## Edit invoice
+  ![image](https://user-images.githubusercontent.com/49925170/235263246-471e5700-9b80-48e6-b27c-ae9fcebf857e.png)
+
+  ## Mark as paid
+  ![image](https://user-images.githubusercontent.com/49925170/235263315-f4b509fd-37b9-41cc-8b74-5abb4336ad1a.png)
+ 
+  ## Invoice marked w/ payment recieved
+  ![image](https://user-images.githubusercontent.com/49925170/235263431-20c4aa20-bd0b-4ebb-8cf8-e9cbeabdd294.png)
+
 </details>
