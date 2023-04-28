@@ -28,7 +28,7 @@ prompt APPLICATION 240402 - PR Billing
 -- Application Export:
 --   Application:     240402
 --   Name:            PR Billing
---   Date and Time:   11:30 Friday April 28, 2023
+--   Date and Time:   12:46 Friday April 28, 2023
 --   Exported By:     MWONG
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -120,7 +120,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'PR Billing'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230428113004'
+,p_last_upd_yyyymmddhh24miss=>'20230428123014'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>17
 ,p_print_server_type=>'INSTANCE'
@@ -39020,7 +39020,7 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230426153426'
+,p_last_upd_yyyymmddhh24miss=>'20230428123014'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(73210101545891262)
@@ -39214,22 +39214,21 @@ wwv_flow_imp_page.create_page_item(
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(62379065969547397)
-,p_name=>'P510_ORGANIZATION_ID'
+,p_name=>'P510_DEPARTMENT_DBID'
 ,p_source_data_type=>'NUMBER'
 ,p_item_sequence=>80
 ,p_item_plug_id=>wwv_flow_imp.id(73210101545891262)
 ,p_item_source_plug_id=>wwv_flow_imp.id(73210101545891262)
-,p_prompt=>'Organization'
+,p_prompt=>'Department'
 ,p_source=>'DEPARTMENT_DBID'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_SELECT_LIST'
-,p_named_lov=>'ORGANIZATION_NAME'
+,p_named_lov=>'DEPARTMENT_NAME_GROUPED'
 ,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'SELECT NAME D, DBID R',
-'FROM ORGANIZATION'))
-,p_lov_display_null=>'YES'
+'SELECT  D."NAME" D, D.DBID R, O."NAME" G',
+'FROM    DEPARTMENT D LEFT JOIN "ORGANIZATION" O ON D.ORGANIZATION_DBID = O.DBID'))
 ,p_cHeight=>1
-,p_field_template=>wwv_flow_imp.id(60892970742251611)
+,p_field_template=>wwv_flow_imp.id(60892652281251610)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_lov_display_extra=>'NO'
