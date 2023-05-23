@@ -28,7 +28,7 @@ prompt APPLICATION 240101 - PR Billing
 -- Application Export:
 --   Application:     240101
 --   Name:            PR Billing
---   Date and Time:   15:49 Thursday May 18, 2023
+--   Date and Time:   12:49 Tuesday May 23, 2023
 --   Exported By:     MWONG
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -120,7 +120,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'PR Billing'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230516115357'
+,p_last_upd_yyyymmddhh24miss=>'20230523111749'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>17
 ,p_print_server_type=>'INSTANCE'
@@ -34686,7 +34686,7 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230516115357'
+,p_last_upd_yyyymmddhh24miss=>'20230523111749'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(91036501856246947)
@@ -34724,6 +34724,7 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_template_id=>wwv_flow_imp.id(41860998909675002)
 ,p_button_image_alt=>'Cancel'
 ,p_button_position=>'CLOSE'
+,p_warn_on_unsaved_changes=>null
 );
 wwv_flow_imp_page.create_page_button(
  p_id=>wwv_flow_imp.id(35008782438575418)
@@ -35151,14 +35152,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>10
 ,p_item_plug_id=>wwv_flow_imp.id(91036501856246947)
 ,p_item_source_plug_id=>wwv_flow_imp.id(91036501856246947)
-,p_use_cache_before_default=>'NO'
-,p_prompt=>'Dbid'
 ,p_source=>'DBID'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_HIDDEN'
-,p_label_alignment=>'RIGHT'
-,p_field_template=>wwv_flow_imp.id(41858552906675002)
-,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_protection_level=>'S'
 ,p_attribute_01=>'Y'
